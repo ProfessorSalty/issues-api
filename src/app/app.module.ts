@@ -5,16 +5,20 @@ import { AppComponent } from './app.component';
 import { IssueListComponent } from './issue-list/issue-list.component';
 import {HttpClientModule} from '@angular/common/http';
 import { IssueComponent } from './issue/issue.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import { NewIssueComponent } from './new-issue/new-issue.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IssueListComponent,
-    IssueComponent
+    IssueComponent,
+    NewIssueComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

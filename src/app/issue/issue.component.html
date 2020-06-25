@@ -1,1 +1,23 @@
-<p>issue works!</p>
+<li>
+  <div class="read-only" *ngIf="!editMode">
+    <h3>{{ issue.title }}</h3>
+    <ul *ngFor="let tag of issue.tags">
+      <li>{{ tag }}</li>
+    </ul>
+    <div [innerHTML]="issue.text"></div>
+    <button type="button" (click)="enableEdit()">Edit</button>
+  </div>
+  <div class="edit" *ngIf="editMode">
+    <input type="text" [formControl]="titleControl" />
+    <ul *ngFor="let tag of tags; let i = index">
+      <li>
+        <span>{{ tag }}</span>
+        <button type="button" (click)="removeTag(i)">X</button>
+      </li>
+    </ul>
+    <input type="text" [formControl]="tagControl" (blur)="addTag()" (keyup)="addTagOnEnter($event)"/>
+    <textarea [formControl]="textControl"></textarea>
+    <button type="button" (click)="cancelEdit()">Cancel</button>
+    <button type="button" (click)="submitEdit()">Submit</button>
+  </div>
+</li>

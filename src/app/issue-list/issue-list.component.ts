@@ -15,4 +15,14 @@ export class IssueListComponent implements OnInit {
   ngOnInit(): void {
     this.api.getAllIssues().subscribe((issues) => (this.issues = issues));
   }
+
+  addIssue(newIssue: Issue) {
+    this.issues.push(newIssue);
+  }
+
+  updateIssue(updatedIssue: Issue) {
+    this.issues = this.issues.map((issue) =>
+      issue.id === updatedIssue.id ? { ...updatedIssue } : issue
+    );
+  }
 }
