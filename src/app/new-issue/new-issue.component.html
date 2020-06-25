@@ -1,0 +1,12 @@
+<div>
+  <input type="text" [formControl]="titleControl" />
+  <ul *ngFor="let tag of tags; let i = index">
+    <li>
+      <span>{{ tag }}</span>
+      <button type="button" (click)="removeTag(i)">X</button>
+    </li>
+  </ul>
+  <input type="text" [formControl]="tagControl" (blur)="addTag()" (keyup)="addTagOnEnter($event)"/>
+  <textarea [formControl]="textControl"></textarea>
+  <button type="button" (click)="submitNewIssue()">Submit</button>
+</div>

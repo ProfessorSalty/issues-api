@@ -11,7 +11,6 @@ export class IssueComponent implements OnInit {
   @Input() issue: Issue;
   @Input() editMode = false;
 
-  @Output() addIssue = new EventEmitter<Issue>();
   @Output() updateIssue = new EventEmitter<Issue>();
 
   titleControl: FormControl;

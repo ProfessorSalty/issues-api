@@ -1,3 +1,4 @@
 <ul>
-    <app-issue *ngFor="let issue of issues" [issue]="issue" (addIssue)="addIssue($event)" (updateIssue)="updateIssue($event)"></app-issue>
+    <app-issue *ngFor="let issue of issues" [issue]="issue"  (updateIssue)="updateIssue($event)"></app-issue>
+    <app-new-issue (addIssue)="addIssue($event)"></app-new-issue>
 </ul>
