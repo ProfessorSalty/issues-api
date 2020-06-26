@@ -7,13 +7,17 @@ import {HttpClientModule} from '@angular/common/http';
 import { IssueComponent } from './issue/issue.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { NewIssueComponent } from './new-issue/new-issue.component';
+import { FilterComponent } from './filter/filter.component';
+import { TagFilterPipe } from './tag-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     IssueListComponent,
     IssueComponent,
-    NewIssueComponent
+    NewIssueComponent,
+    FilterComponent,
+    TagFilterPipe
   ],
   imports: [
     BrowserModule,
