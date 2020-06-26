@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Issue} from './issue.model';
+import { Issue } from './issue.model';
+import {distinct, flatMap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -14,5 +15,12 @@ export class IssueService {
 
   getAllIssues() {
     return this.http.get<Issue[]>(`${this.issuesEndpoint}`);
+  }
+
+  getAllTags() {
+    return this.getAllIssues().pipe(
+      flatMap((issues) => issues.map((issue) => issue.tags)),
+      distinct()
+    );
   }
 }

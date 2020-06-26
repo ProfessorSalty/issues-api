@@ -9,12 +9,14 @@ import { Issue } from '../issue.model';
 })
 export class IssueListComponent implements OnInit {
   issues: Issue[];
+  tags: string[];
   tagFilter: string;
 
   constructor(private api: IssueService) {}
 
   ngOnInit(): void {
     this.api.getAllIssues().subscribe((issues) => (this.issues = issues));
+    this.api.getAllTags().subscribe((tags) => (this.tags = tags));
   }
 
   addIssue(newIssue: Issue) {
@@ -28,7 +30,7 @@ export class IssueListComponent implements OnInit {
   }
 
   deleteIssue(id: string) {
-    this.issues = this.issues.filter(issue => issue.id !== id);
+    this.issues = this.issues.filter((issue) => issue.id !== id);
   }
 
   updateFilter(filter: string) {
