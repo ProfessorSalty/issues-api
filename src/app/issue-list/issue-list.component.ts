@@ -27,6 +27,10 @@ export class IssueListComponent implements OnInit {
     );
   }
 
+  deleteIssue(id: string) {
+    this.issues = this.issues.filter(issue => issue.id !== id);
+  }
+
   updateFilter(filter: string) {
     this.tagFilter = filter;
   }

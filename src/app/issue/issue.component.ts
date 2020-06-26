@@ -12,6 +12,7 @@ export class IssueComponent implements OnInit {
   @Input() editMode = false;
 
   @Output() updateIssue = new EventEmitter<Issue>();
+  @Output() deleteIssue = new EventEmitter<string>();
 
   titleControl: FormControl;
   textControl: FormControl;
@@ -69,5 +70,9 @@ export class IssueComponent implements OnInit {
     this.textControl.reset(this.issue.text);
     this.tags = [...this.issue.tags];
     this.tagControl.reset('');
+  }
+
+  onDelete() {
+    this.deleteIssue.emit(this.issue.id);
   }
 }

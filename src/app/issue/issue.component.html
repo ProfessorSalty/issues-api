@@ -6,6 +6,7 @@
     </ul>
     <div [innerHTML]="issue.text"></div>
     <button type="button" (click)="enableEdit()">Edit</button>
+    <button type="button" (click)="onDelete()">Delete</button>
   </div>
   <div class="edit" *ngIf="editMode">
     <input type="text" [formControl]="titleControl" />
