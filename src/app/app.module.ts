@@ -10,6 +10,7 @@ import { NewIssueComponent } from './new-issue/new-issue.component';
 import { FilterComponent } from './filter/filter.component';
 import { TagFilterPipe } from './tag-filter.pipe';
 import { AlltagsFilterPipe } from './alltags-filter.pipe';
+import { ExcludeTagsFilterPipe } from './exclude-tags-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AlltagsFilterPipe } from './alltags-filter.pipe';
     NewIssueComponent,
     FilterComponent,
     TagFilterPipe,
-    AlltagsFilterPipe
+    AlltagsFilterPipe,
+    ExcludeTagsFilterPipe
   ],
   imports: [
     BrowserModule,

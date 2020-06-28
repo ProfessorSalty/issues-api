@@ -26,7 +26,11 @@
     />
     <datalist id="tags-list">
       <option
-        *ngFor="let tag of allTags | alltagsFilter: tagControl.value"
+        *ngFor="
+          let tag of allTags
+            | excludeTagsFilter: tags
+            | alltagsFilter: tagControl.value
+        "
         >{{ tag }}</option
       >
     </datalist>

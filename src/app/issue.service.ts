@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Issue } from './issue.model';
-import {distinct, map} from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -19,8 +19,9 @@ export class IssueService {
 
   getAllTags() {
     return this.getAllIssues().pipe(
-      map((issues) => issues.flatMap(issue => issue.tags)),
-      distinct()
+      map((issues) => issues.flatMap((issue) => issue.tags)),
+      map((tags) => Array.from(new Set(tags))),
+      map((tags) => tags.sort((a: string, b: string) => a.localeCompare(b)))
     );
   }
 }
