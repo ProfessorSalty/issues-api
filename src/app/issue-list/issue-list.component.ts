@@ -9,14 +9,20 @@ import { Issue } from '../issue.model';
 })
 export class IssueListComponent implements OnInit {
   issues: Issue[];
-  tags: string[];
+  allTags: string[];
   tagFilter: string;
 
   constructor(private api: IssueService) {}
 
   ngOnInit(): void {
     this.api.getAllIssues().subscribe((issues) => (this.issues = issues));
-    this.api.getAllTags().subscribe((tags) => (this.tags = tags));
+    this.api.getAllTags().subscribe((tags) => (this.allTags = tags));
+  }
+
+  addNewTag(newTag: string) {
+    if (!this.allTags.includes(newTag)) {
+      this.allTags.push(newTag);
+    }
   }
 
   addIssue(newIssue: Issue) {

@@ -9,10 +9,12 @@ import { FormControl } from '@angular/forms';
 })
 export class IssueComponent implements OnInit {
   @Input() issue: Issue;
+  @Input() allTags: string[];
   @Input() editMode = false;
 
   @Output() updateIssue = new EventEmitter<Issue>();
   @Output() deleteIssue = new EventEmitter<string>();
+  @Output() addNewTag = new EventEmitter<string>();
 
   titleControl: FormControl;
   textControl: FormControl;
@@ -41,11 +43,18 @@ export class IssueComponent implements OnInit {
       return;
     }
     this.tags.push(this.tagControl.value);
+    this.addNewTag.emit(this.tagControl.value);
     this.tagControl.reset('');
   }
 
   addTagOnEnter(event: KeyboardEvent) {
     if (event.key === 'Enter') {
+      this.addTag();
+    }
+  }
+
+  addTagOnInput() {
+    if (this.allTags.includes(this.tagControl.value)) {
       this.addTag();
     }
   }

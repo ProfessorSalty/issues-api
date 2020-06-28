@@ -16,7 +16,20 @@
         <button type="button" (click)="removeTag(i)">X</button>
       </li>
     </ul>
-    <input type="text" [formControl]="tagControl" (blur)="addTag()" (keyup)="addTagOnEnter($event)"/>
+    <input
+      type="search"
+      [formControl]="tagControl"
+      (blur)="addTag()"
+      (keyup)="addTagOnEnter($event)"
+      (input)="addTagOnInput()"
+      list="tags-list"
+    />
+    <datalist id="tags-list">
+      <option
+        *ngFor="let tag of allTags | alltagsFilter: tagControl.value"
+        >{{ tag }}</option
+      >
+    </datalist>
     <textarea [formControl]="textControl"></textarea>
     <button type="button" (click)="cancelEdit()">Cancel</button>
     <button type="button" (click)="submitEdit()">Submit</button>

@@ -1,5 +1,12 @@
 <ul>
-    <app-filter (setFilter)="updateFilter($event)"></app-filter>
-    <app-issue *ngFor="let issue of (issues | tagFilter:tagFilter)" [issue]="issue"  (updateIssue)="updateIssue($event)" (deleteIssue)="deleteIssue($event)"></app-issue>
-    <app-new-issue (addIssue)="addIssue($event)"></app-new-issue>
+  <app-filter (setFilter)="updateFilter($event)"></app-filter>
+  <app-issue
+    *ngFor="let issue of issues | tagFilter: tagFilter"
+    [allTags]="allTags"
+    [issue]="issue"
+    (updateIssue)="updateIssue($event)"
+    (deleteIssue)="deleteIssue($event)"
+    (addNewTag)="addNewTag($event)"
+  ></app-issue>
+  <app-new-issue (addIssue)="addIssue($event)" ></app-new-issue>
 </ul>
