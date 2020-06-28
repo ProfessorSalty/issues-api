@@ -21,7 +21,9 @@ export class IssueListComponent implements OnInit {
 
   addNewTag(newTag: string) {
     if (!this.allTags.includes(newTag)) {
-      this.allTags.push(newTag);
+      this.allTags = [...this.allTags, newTag].sort((a, b) =>
+        a.localeCompare(b)
+      );
     }
   }
 

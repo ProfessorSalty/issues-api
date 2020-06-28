@@ -39,7 +39,11 @@ export class IssueComponent implements OnInit {
   }
 
   addTag() {
-    if (this.tagControl.pristine) {
+    if (
+      this.tagControl.pristine ||
+      this.tagControl.value === '' ||
+      this.tags.includes(this.tagControl.value)
+    ) {
       return;
     }
     this.tags.push(this.tagControl.value);
@@ -53,7 +57,10 @@ export class IssueComponent implements OnInit {
     }
   }
 
-  addTagOnInput() {
+  addTagOnInput(event: Event) {
+    if ((event as InputEvent).data) {
+      return;
+    }
     if (this.allTags.includes(this.tagControl.value)) {
       this.addTag();
     }

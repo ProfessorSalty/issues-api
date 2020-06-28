@@ -21,7 +21,7 @@
       [formControl]="tagControl"
       (blur)="addTag()"
       (keyup)="addTagOnEnter($event)"
-      (input)="addTagOnInput()"
+      (input)="addTagOnInput($event)"
       list="tags-list"
     />
     <datalist id="tags-list">

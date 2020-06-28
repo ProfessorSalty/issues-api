@@ -19,9 +19,9 @@ export class IssueService {
 
   getAllTags() {
     return this.getAllIssues().pipe(
-      map((issues) => issues.flatMap((issue) => issue.tags)),
-      map((tags) => Array.from(new Set(tags))),
-      map((tags) => tags.sort((a: string, b: string) => a.localeCompare(b)))
+      map<Issue[], string[]>((issues) => issues.flatMap((issue) => issue.tags)),
+      map<string[], string[]>((tags) => Array.from(new Set(tags))),
+      map<string[], string[]>((tags) => tags.sort((a: string, b: string) => a.localeCompare(b)))
     );
   }
 }
