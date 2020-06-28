@@ -4,7 +4,7 @@
     <ul *ngFor="let tag of issue.tags">
       <li>{{ tag }}</li>
     </ul>
-    <div [innerHTML]="issue.text"></div>
+    <app-comment-view [text]="issue.text"></app-comment-view>
     <button type="button" (click)="enableEdit()">Edit</button>
     <button type="button" (click)="onDelete()">Delete</button>
   </div>
