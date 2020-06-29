@@ -4,14 +4,17 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'makeCalculations',
 })
 export class MakeCalculationsPipe implements PipeTransform {
-  private static mathStringRegex = /-?\d+ [+-] -?\d+[+\-\s\d]*/g;
+  private static mathStringRegex = /-?\d+ ?[+-] ?-?\d+[+\-\s\d]*/g;
   private static mathDict = {
     '+': (a, b) => a + b,
     '-': (a, b) => a - b,
   };
 
   private static calculate(calcStr: string): string {
-    const ops = calcStr.split(' ');
+    const ops = calcStr
+      .split(/(\d+)/)
+      .map((char) => char.trim())
+      .filter((char) => char !== '');
     let result = Number(ops[0]);
     for (let i = 1; i < ops.length - 1; i += 2) {
       result = MakeCalculationsPipe.mathDict[ops[i]](result, +ops[i + 1]);
