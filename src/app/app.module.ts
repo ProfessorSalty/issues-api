@@ -9,7 +9,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { NewIssueComponent } from './new-issue/new-issue.component';
 import { FilterComponent } from './filter/filter.component';
 import { TagFilterPipe } from './tag-filter.pipe';
-import { AlltagsFilterPipe } from './alltags-filter.pipe';
+import { AllTagsFilterPipe } from './alltags-filter.pipe';
 import { ExcludeTagsFilterPipe } from './exclude-tags-filter.pipe';
 import { MakeCalculationsPipe } from './make-calculations.pipe';
 import { CommentViewComponent } from './comment-view/comment-view.component';
@@ -22,7 +22,7 @@ import { CommentViewComponent } from './comment-view/comment-view.component';
     NewIssueComponent,
     FilterComponent,
     TagFilterPipe,
-    AlltagsFilterPipe,
+    AllTagsFilterPipe,
     ExcludeTagsFilterPipe,
     MakeCalculationsPipe,
     CommentViewComponent

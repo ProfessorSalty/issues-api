@@ -19,7 +19,7 @@
       *ngFor="
           let tag of allTags
             | excludeTagsFilter: tagsControl
-            | alltagsFilter: tagInputControl.value
+            | allTagsFilter: tagInputControl.value
         "
     >{{ tag }}</option
     >
