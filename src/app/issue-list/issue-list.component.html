@@ -11,9 +11,11 @@
     *ngFor="let issue of issues | tagFilter: tagFilter | selectedTagFilter: selectedTags"
     [allTags]="allTags"
     [issue]="issue"
+    [selectedTags]="selectedTags"
     (updateIssue)="onUpdateIssue($event)"
     (deleteIssue)="onDeleteIssue($event)"
     (addNewTag)="onAddNewTag($event)"
+    (selectTag)="onSelectTag($event)"
   ></app-issue>
   <app-new-issue
     (submitIssue)="onSubmitNewIssue($event)"

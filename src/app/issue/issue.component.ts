@@ -9,10 +9,12 @@ import { Issue } from '../issue.model';
 export class IssueComponent implements OnInit {
   @Input() issue: Issue;
   @Input() allTags: string[];
+  @Input() selectedTags: string[];
 
   @Output() updateIssue = new EventEmitter<Issue>();
   @Output() deleteIssue = new EventEmitter<string>();
   @Output() addNewTag = new EventEmitter<string>();
+  @Output() selectTag = new EventEmitter<string>();
 
   editMode = false;
 
@@ -38,5 +40,9 @@ export class IssueComponent implements OnInit {
 
   onAddNewTag(tag: string) {
     this.addNewTag.emit(tag);
+  }
+
+  onSelectTag(tag: string) {
+    this.selectTag.emit(tag);
   }
 }

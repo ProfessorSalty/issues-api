@@ -15,7 +15,7 @@ export class TagComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onClick(tag: string) {
-    this.clickTag.emit(tag);
+  onClick() {
+    this.clickTag.emit(this.value);
   }
 }
