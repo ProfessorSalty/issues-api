@@ -1,5 +1,5 @@
 export class Issue {
-  id: string;
+  id?: string;
   title: string;
   text: string;
   tags: string[];

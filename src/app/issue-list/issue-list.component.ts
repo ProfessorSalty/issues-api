@@ -19,7 +19,7 @@ export class IssueListComponent implements OnInit {
     this.api.getAllTags().subscribe((tags) => (this.allTags = tags));
   }
 
-  addNewTag(newTag: string) {
+  onAddNewTag(newTag: string) {
     if (!this.allTags.includes(newTag)) {
       this.allTags = [...this.allTags, newTag].sort((a, b) =>
         a.localeCompare(b)
@@ -27,21 +27,21 @@ export class IssueListComponent implements OnInit {
     }
   }
 
-  addIssue(newIssue: Issue) {
+  onSubmitNewIssue(newIssue: Issue) {
     this.issues = [...this.issues, newIssue];
   }
 
-  updateIssue(updatedIssue: Issue) {
+  onUpdateIssue(updatedIssue: Issue) {
     this.issues = this.issues.map((issue) =>
       issue.id === updatedIssue.id ? { ...updatedIssue } : issue
     );
   }
 
-  deleteIssue(id: string) {
+  onDeleteIssue(id: string) {
     this.issues = this.issues.filter((issue) => issue.id !== id);
   }
 
-  updateFilter(filter: string) {
+  onUpdateFilter(filter: string) {
     this.tagFilter = filter;
   }
 }

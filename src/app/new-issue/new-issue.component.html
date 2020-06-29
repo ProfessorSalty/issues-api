@@ -1,12 +1,30 @@
 <div>
-  <input type="text" [formControl]="titleControl" />
-  <ul *ngFor="let tag of tags; let i = index">
+  <input type="text" [formControl]="titleInputControl" />
+  <ul *ngFor="let tag of tagsControl; let i = index">
     <li>
       <span>{{ tag }}</span>
-      <button type="button" (click)="removeTag(i)">X</button>
+      <button type="button" (click)="onRemoveTag(i)">X</button>
     </li>
   </ul>
-  <input type="text" [formControl]="tagControl" (blur)="addTag()" (keyup)="addTagOnEnter($event)"/>
-  <textarea [formControl]="textControl"></textarea>
-  <button type="button" (click)="submitNewIssue()">Submit</button>
+  <input
+    type="search"
+    [formControl]="tagInputControl"
+    (blur)="onTagBlur()"
+    (keyup)="onTagEnter($event)"
+    (input)="onTagInput($event)"
+    list="tags-list"
+  />
+  <datalist id="tags-list">
+    <option
+      *ngFor="
+          let tag of allTags
+            | excludeTagsFilter: tagsControl
+            | alltagsFilter: tagInputControl.value
+        "
+    >{{ tag }}</option
+    >
+  </datalist>
+  <textarea [formControl]="textInputControl"></textarea>
+  <button type="button" (click)="onCancel()">Cancel</button>
+  <button type="button" (click)="onSubmit()">Submit</button>
 </div>

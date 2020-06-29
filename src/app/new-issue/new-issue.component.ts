@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Issue } from '../issue.model';
 import { FormControl } from '@angular/forms';
 
@@ -8,50 +8,86 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./new-issue.component.css'],
 })
 export class NewIssueComponent implements OnInit {
-  @Output() addIssue = new EventEmitter<Issue>();
-  titleControl: FormControl;
-  textControl: FormControl;
-  tagControl: FormControl;
-  tags: string[];
+  @Input() allTags: string[];
+  @Input() id?: string;
+  @Input() title?: string;
+  @Input() text?: string;
+  @Input() tags?: string[] = [];
+
+  @Output() submitIssue = new EventEmitter<Issue>();
+  @Output() deleteIssue = new EventEmitter<string>();
+  @Output() addNewTag = new EventEmitter<string>();
+  @Output() cancelEditing = new EventEmitter<boolean>();
+
+  titleInputControl: FormControl;
+  textInputControl: FormControl;
+  tagInputControl: FormControl;
+  tagsControl: string[];
 
   constructor() {}
 
   ngOnInit(): void {
-    this.titleControl = new FormControl();
-    this.textControl = new FormControl();
-    this.tagControl = new FormControl('');
-    this.tags = [];
+    this.titleInputControl = new FormControl(this.title || '');
+    this.textInputControl = new FormControl(this.text || '');
+    this.tagInputControl = new FormControl('');
+    this.tagsControl = this.tags || [];
   }
 
-  addTag() {
-    if (this.tagControl.pristine) {
+  private addTag() {
+    if (
+      this.tagInputControl.pristine ||
+      this.tagInputControl.value === '' ||
+      this.tagsControl.includes(this.tagInputControl.value)
+    ) {
       return;
     }
-    this.tags.push(this.tagControl.value);
-    this.tagControl.reset('');
+    this.tagsControl.push(this.tagInputControl.value);
+    this.addNewTag.emit(this.tagInputControl.value);
+    this.tagInputControl.reset('');
   }
 
-  addTagOnEnter(event: KeyboardEvent) {
+  private resetFields() {
+    this.titleInputControl.reset('');
+    this.textInputControl.reset('');
+    this.tagsControl = [];
+  }
+
+  onTagBlur() {
+    this.addTag();
+  }
+
+  onTagEnter(event: KeyboardEvent) {
     if (event.key === 'Enter') {
       this.addTag();
     }
   }
 
-  removeTag(index: number) {
-    this.tags.splice(index, 1);
+  onTagInput(event: Event) {
+    if ((event as InputEvent).data) {
+      return;
+    }
+    if (this.allTags.includes(this.tagInputControl.value)) {
+      this.addTag();
+    }
   }
 
-  submitNewIssue() {
-    const newIssue: Issue = {
-      id: '',
-      title: this.titleControl.value,
-      text: this.textControl.value,
-      tags: this.tags,
-    };
+  onRemoveTag(index: number) {
+    this.tagsControl.splice(index, 1);
+  }
 
-    this.addIssue.emit(newIssue);
-    this.titleControl.reset('');
-    this.textControl.reset('');
-    this.tags = [];
+  onSubmit() {
+    const newIssue: Issue = {
+      id: this.id || '',
+      title: this.titleInputControl.value,
+      text: this.textInputControl.value,
+      tags: this.tagsControl,
+    };
+    this.submitIssue.emit(newIssue);
+    this.resetFields();
+  }
+
+  onCancel() {
+    this.cancelEditing.emit(true);
+    this.resetFields();
   }
 }

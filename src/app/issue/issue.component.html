@@ -5,37 +5,19 @@
       <li>{{ tag }}</li>
     </ul>
     <app-comment-view [text]="issue.text"></app-comment-view>
-    <button type="button" (click)="enableEdit()">Edit</button>
+    <button type="button" (click)="onEnableEdit()">Edit</button>
     <button type="button" (click)="onDelete()">Delete</button>
   </div>
   <div class="edit" *ngIf="editMode">
-    <input type="text" [formControl]="titleControl" />
-    <ul *ngFor="let tag of tags; let i = index">
-      <li>
-        <span>{{ tag }}</span>
-        <button type="button" (click)="removeTag(i)">X</button>
-      </li>
-    </ul>
-    <input
-      type="search"
-      [formControl]="tagControl"
-      (blur)="addTag()"
-      (keyup)="addTagOnEnter($event)"
-      (input)="addTagOnInput($event)"
-      list="tags-list"
-    />
-    <datalist id="tags-list">
-      <option
-        *ngFor="
-          let tag of allTags
-            | excludeTagsFilter: tags
-            | alltagsFilter: tagControl.value
-        "
-        >{{ tag }}</option
-      >
-    </datalist>
-    <textarea [formControl]="textControl"></textarea>
-    <button type="button" (click)="cancelEdit()">Cancel</button>
-    <button type="button" (click)="submitEdit()">Submit</button>
+    <app-new-issue
+      (addNewTag)="onAddNewTag($event)"
+      (submitIssue)="onUpdate($event)"
+      (cancelEditing)="onDisableEdit()"
+      [allTags]="allTags"
+      [id]="issue.id"
+      [title]="issue.title"
+      [text]="issue.text"
+      [tags]="issue.tags"
+    ></app-new-issue>
   </div>
 </li>

@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Issue } from '../issue.model';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-issue',
@@ -10,85 +9,34 @@ import { FormControl } from '@angular/forms';
 export class IssueComponent implements OnInit {
   @Input() issue: Issue;
   @Input() allTags: string[];
-  @Input() editMode = false;
 
   @Output() updateIssue = new EventEmitter<Issue>();
   @Output() deleteIssue = new EventEmitter<string>();
   @Output() addNewTag = new EventEmitter<string>();
 
-  titleControl: FormControl;
-  textControl: FormControl;
-  tagControl: FormControl;
-  tags: string[];
+  editMode = false;
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.titleControl = new FormControl(this.issue.title);
-    this.textControl = new FormControl(this.issue.text);
-    this.tagControl = new FormControl('');
-    this.tags = [...this.issue.tags];
-  }
+  ngOnInit(): void {}
 
-  enableEdit() {
+  onEnableEdit() {
     this.editMode = true;
   }
 
-  disableEdit() {
+  onDisableEdit() {
     this.editMode = false;
-  }
-
-  addTag() {
-    if (
-      this.tagControl.pristine ||
-      this.tagControl.value === '' ||
-      this.tags.includes(this.tagControl.value)
-    ) {
-      return;
-    }
-    this.tags.push(this.tagControl.value);
-    this.addNewTag.emit(this.tagControl.value);
-    this.tagControl.reset('');
-  }
-
-  addTagOnEnter(event: KeyboardEvent) {
-    if (event.key === 'Enter') {
-      this.addTag();
-    }
-  }
-
-  addTagOnInput(event: Event) {
-    if ((event as InputEvent).data) {
-      return;
-    }
-    if (this.allTags.includes(this.tagControl.value)) {
-      this.addTag();
-    }
-  }
-
-  removeTag(index: number) {
-    this.tags.splice(index, 1);
-  }
-
-  submitEdit() {
-    const updatedIssue = {
-      id: this.issue.id,
-      title: this.titleControl.value,
-      text: this.textControl.value,
-      tags: this.tags,
-    };
-    this.updateIssue.emit(updatedIssue);
-  }
-
-  cancelEdit() {
-    this.disableEdit();
-    this.titleControl.reset(this.issue.title);
-    this.textControl.reset(this.issue.text);
-    this.tags = [...this.issue.tags];
-    this.tagControl.reset('');
   }
 
   onDelete() {
     this.deleteIssue.emit(this.issue.id);
+  }
+
+  onUpdate(newIssue: Issue) {
+    this.updateIssue.emit(newIssue);
+  }
+
+  onAddNewTag(tag: string) {
+    this.addNewTag.emit(tag);
   }
 }
