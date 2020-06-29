@@ -1,0 +1,31 @@
+@import "../variables";
+
+.tag-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 80vw;
+  list-style: none;
+  padding-inline-start: 0;
+  gap: 10px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filter-input {
+  width: 80vw;
+  margin-bottom: 20px;
+  font-size: 1.6em;
+}
+
+.clear-selection-btn {
+  border: none;
+  background-color: transparent;
+  color: $clear-selection-btn-color;
+}

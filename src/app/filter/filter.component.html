@@ -1,5 +1,5 @@
-<div>
-  <input type="search" (input)="changeFilter($event)" list="tags-list" />
+<div class="wrapper">
+  <input type="search" (input)="changeFilter($event)" list="tags-list" class="filter-input" placeholder="Filter by tag..."/>
   <datalist id="tags-list">
     <option *ngFor="let tag of allTags | excludeTagsFilter: selectedTags">{{
       tag
@@ -7,12 +7,13 @@
   </datalist>
   <button
     type="button"
+    class="clear-selection-btn"
     [hidden]="selectedTags.length === 0"
     (click)="onDeselectAllTags()"
   >
     Clear all tags
   </button>
-  <ul>
+  <ul class="tag-list">
     <li *ngFor="let tag of selectedTags">
       <app-tag [selected]="true" [value]="tag" (clickTag)="onDeselectTag($event)">
         {{ tag }}
