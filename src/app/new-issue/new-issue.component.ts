@@ -5,7 +5,7 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-new-issue',
   templateUrl: './new-issue.component.html',
-  styleUrls: ['./new-issue.component.css'],
+  styleUrls: ['./new-issue.component.scss'],
 })
 export class NewIssueComponent implements OnInit {
   @Input() allTags: string[];
