@@ -8,8 +8,9 @@ import { Issue } from '../issue.model';
   styleUrls: ['./issue-list.component.css'],
 })
 export class IssueListComponent implements OnInit {
-  issues: Issue[];
+  issues: Issue[] = [];
   allTags: string[] = [];
+  selectedTags: string[] = [];
   tagFilter: string;
 
   constructor(private api: IssueService) {}
@@ -17,6 +18,14 @@ export class IssueListComponent implements OnInit {
   ngOnInit(): void {
     this.api.getAllIssues().subscribe((issues) => (this.issues = issues));
     this.api.getAllTags().subscribe((tags) => (this.allTags = tags));
+  }
+
+  onSelectTag(newTag: string) {
+    this.selectedTags = [...this.selectedTags, newTag];
+  }
+
+  onDeselectTag(target: string) {
+    this.selectedTags = this.selectedTags.filter((tag) => tag !== target);
   }
 
   onAddNewTag(newTag: string) {
@@ -43,5 +52,9 @@ export class IssueListComponent implements OnInit {
 
   onUpdateFilter(filter: string) {
     this.tagFilter = filter;
+  }
+
+  onDeselectAllTags() {
+    this.selectedTags = [];
   }
 }

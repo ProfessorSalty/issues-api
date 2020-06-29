@@ -13,6 +13,8 @@ import { AllTagsFilterPipe } from './alltags-filter.pipe';
 import { ExcludeTagsFilterPipe } from './exclude-tags-filter.pipe';
 import { MakeCalculationsPipe } from './make-calculations.pipe';
 import { CommentViewComponent } from './comment-view/comment-view.component';
+import { TagComponent } from './tag/tag.component';
+import { SelectedTagFilterPipe } from './selected-tag-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { CommentViewComponent } from './comment-view/comment-view.component';
     AllTagsFilterPipe,
     ExcludeTagsFilterPipe,
     MakeCalculationsPipe,
-    CommentViewComponent
+    CommentViewComponent,
+    TagComponent,
+    SelectedTagFilterPipe
   ],
   imports: [
     BrowserModule,

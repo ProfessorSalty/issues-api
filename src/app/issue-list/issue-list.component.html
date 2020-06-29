@@ -1,7 +1,14 @@
 <ul>
-  <app-filter (setFilter)="onUpdateFilter($event)"></app-filter>
+  <app-filter
+    (setFilter)="onUpdateFilter($event)"
+    [allTags]="allTags"
+    [selectedTags]="selectedTags"
+    (selectTag)="onSelectTag($event)"
+    (deselectTag)="onDeselectTag($event)"
+    (deselectAllTags)="onDeselectAllTags()"
+  ></app-filter>
   <app-issue
-    *ngFor="let issue of issues | tagFilter: tagFilter"
+    *ngFor="let issue of issues | tagFilter: tagFilter | selectedTagFilter: selectedTags"
     [allTags]="allTags"
     [issue]="issue"
     (updateIssue)="onUpdateIssue($event)"
