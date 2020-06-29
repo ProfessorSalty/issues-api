@@ -1,0 +1,23 @@
+@import "../variables";
+
+.tag {
+  display: inline-block;
+  background-color: $tag-bg;
+  color: $tag-text;
+  border: 1px solid $tag-border;
+  padding: 1px 5px;
+  border-radius: 10px;
+  min-width: 30px;
+  text-align: center;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $tag-hover-bg;
+    color: $tag-hover-text;
+  }
+
+  &.selected {
+    background-color: $tag-selected-bg;
+    color: $tag-selected-text;
+  }
+}

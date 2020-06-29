@@ -4,18 +4,18 @@
     <ul>
       <ng-container *ngIf="selectedTags.length > 0">
         <li *ngFor="let tag of selectedTags">
-          <app-tag [value]="tag" selected="true">{{ tag }}</app-tag>
+          <app-tag [value]="tag" [selected]="true">{{ tag }}</app-tag>
         </li>
       </ng-container>
       <li *ngFor="let tag of issue.tags | excludeTagsFilter: selectedTags">
-        <app-tag [value]="tag" (clickTag)="onSelectTag($event)" selected="false">{{ tag }}</app-tag>
+        <app-tag [value]="tag" (clickTag)="onSelectTag($event)" [selected]="false">{{ tag }}</app-tag>
       </li>
     </ul>
     <app-comment-view [text]="issue.text"></app-comment-view>
     <button type="button" (click)="onEnableEdit()">Edit</button>
     <button type="button" (click)="onDelete()">Delete</button>
   </div>
-  <div class="edit" *ngIf="editMode">
+  <div *ngIf="editMode">
     <app-new-issue
       (addNewTag)="onAddNewTag($event)"
       (submitIssue)="onUpdate($event)"
