@@ -9,7 +9,7 @@ import { Issue } from '../issue.model';
 })
 export class IssueListComponent implements OnInit {
   issues: Issue[];
-  allTags: string[];
+  allTags: string[] = [];
   tagFilter: string;
 
   constructor(private api: IssueService) {}
