@@ -1,3 +1,6 @@
-<div [ngClass]="{ selected: selected, tag: true }" (click)="onClick()">
+<div [ngClass]="{ selected: selected, edit: edit, tag: true }" (click)="onClick()">
   <ng-content></ng-content>
+  <ng-container *ngIf="edit">
+    <app-button (click)="onDelete(idx)">X</app-button>
+  </ng-container>
 </div>

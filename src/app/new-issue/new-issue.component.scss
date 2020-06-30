@@ -1,0 +1,16 @@
+@import "../variables";
+
+.issue-title {
+  border: none;
+  font-size: 28px;
+}
+
+.issue-tag {
+  border: none;
+}
+
+.issue-text {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid $issue-text-input-border;
+}

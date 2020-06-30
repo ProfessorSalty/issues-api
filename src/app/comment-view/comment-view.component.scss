@@ -1,3 +1,11 @@
+@import "../variables";
+
+.common-wrapper {
+  border-bottom: 1px solid $comment-wrapper-border;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+
 .math-result {
   color: red;
   position: relative;

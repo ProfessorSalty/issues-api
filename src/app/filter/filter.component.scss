@@ -28,4 +28,8 @@
   border: none;
   background-color: transparent;
   color: $clear-selection-btn-color;
+
+  &:hover {
+    cursor: pointer;
+  }
 }

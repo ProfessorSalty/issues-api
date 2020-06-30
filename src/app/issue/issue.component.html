@@ -1,19 +1,15 @@
-<li>
+<li class="issue">
   <div class="read-only" *ngIf="!editMode">
-    <h3>{{ issue.title }}</h3>
-    <ul>
-      <ng-container *ngIf="selectedTags.length > 0">
-        <li *ngFor="let tag of selectedTags">
-          <app-tag [value]="tag" [selected]="true">{{ tag }}</app-tag>
-        </li>
-      </ng-container>
-      <li *ngFor="let tag of issue.tags | excludeTagsFilter: selectedTags">
-        <app-tag [value]="tag" (clickTag)="onSelectTag($event)" [selected]="false">{{ tag }}</app-tag>
-      </li>
-    </ul>
-    <app-comment-view [text]="issue.text"></app-comment-view>
-    <button type="button" (click)="onEnableEdit()">Edit</button>
-    <button type="button" (click)="onDelete()">Delete</button>
+    <app-issue-view
+      [id]="issue.id"
+      [title]="issue.title"
+      [text]="issue.text"
+      [tags]="issue.tags"
+      [selectedTags]="selectedTags"
+      (enableEdit)="onEnableEdit()"
+      (delete)="onDelete()"
+      (selectTag)="onSelectTag($event)"
+    ></app-issue-view>
   </div>
   <div *ngIf="editMode">
     <app-new-issue

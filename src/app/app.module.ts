@@ -15,6 +15,12 @@ import { MakeCalculationsPipe } from './make-calculations.pipe';
 import { CommentViewComponent } from './comment-view/comment-view.component';
 import { TagComponent } from './tag/tag.component';
 import { SelectedTagFilterPipe } from './selected-tag-filter.pipe';
+import { IssueTitleBarComponent } from './issue-title-bar/issue-title-bar.component';
+import { IssueContentComponent } from './issue-content/issue-content.component';
+import { IssueFooterComponent } from './issue-footer/issue-footer.component';
+import { IssueTagListComponent } from './issue-tag-list/issue-tag-list.component';
+import { IssueViewComponent } from './issue-view/issue-view.component';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +35,13 @@ import { SelectedTagFilterPipe } from './selected-tag-filter.pipe';
     MakeCalculationsPipe,
     CommentViewComponent,
     TagComponent,
-    SelectedTagFilterPipe
+    SelectedTagFilterPipe,
+    IssueTitleBarComponent,
+    IssueContentComponent,
+    IssueFooterComponent,
+    IssueTagListComponent,
+    IssueViewComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,9 +7,12 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class TagComponent implements OnInit {
   @Input() selected = false;
+  @Input() edit = false;
   @Input() value: string;
+  @Input() idx: number;
 
   @Output() clickTag = new EventEmitter<string>();
+  @Output() deleteTag = new EventEmitter<number>();
 
   constructor() {}
 
@@ -17,5 +20,9 @@ export class TagComponent implements OnInit {
 
   onClick() {
     this.clickTag.emit(this.value);
+  }
+
+  onDelete(idx: number) {
+    this.deleteTag.emit(idx);
   }
 }

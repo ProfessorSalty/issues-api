@@ -1,30 +1,40 @@
 <div>
-  <input type="text" [formControl]="titleInputControl" />
-  <ul *ngFor="let tag of tagsControl; let i = index">
-    <li>
-      <span>{{ tag }}</span>
-      <button type="button" (click)="onRemoveTag(i)">X</button>
-    </li>
-  </ul>
-  <input
-    type="search"
-    [formControl]="tagInputControl"
-    (blur)="onTagBlur()"
-    (keyup)="onTagEnter($event)"
-    (input)="onTagInput($event)"
-    list="tags-list"
-  />
-  <datalist id="tags-list">
-    <option
-      *ngFor="
-          let tag of allTags
-            | excludeTagsFilter: tagsControl
-            | allTagsFilter: tagInputControl.value
-        "
-    >{{ tag }}</option
-    >
-  </datalist>
-  <textarea [formControl]="textInputControl"></textarea>
-  <button type="button" (click)="onCancel()">Cancel</button>
-  <button type="button" (click)="onSubmit()">Submit</button>
+  <app-issue-title-bar>
+    <input type="text" [formControl]="titleInputControl" class="issue-title" placeholder="add issue title..."/>
+  </app-issue-title-bar>
+  <app-issue-content>
+    <app-issue-tag-list>
+      <li *ngFor="let tag of tagsControl; let i = index">
+        <app-tag [edit]="true" (deleteTag)="onRemoveTag($event)">{{ tag }}</app-tag>
+      </li>
+      <li>
+        <input
+          type="search"
+          class="issue-tag"
+          [formControl]="tagInputControl"
+          (blur)="onTagBlur()"
+          (keyup)="onTagEnter($event)"
+          (input)="onTagInput($event)"
+          list="tags-list"
+          placeholder="add tag..."
+        />
+        <datalist id="tags-list">
+          <option
+            *ngFor="
+              let tag of allTags
+                | excludeTagsFilter: tagsControl
+                | allTagsFilter: tagInputControl.value
+            "
+          >
+            {{ tag }}
+          </option>
+        </datalist>
+      </li>
+    </app-issue-tag-list>
+    <textarea [formControl]="textInputControl" class="issue-text" placeholder="write comment here..."></textarea>
+  </app-issue-content>
+  <app-issue-footer>
+    <app-button (click)="onCancel()" delete="true">Cancel</app-button>
+    <app-button (click)="onSubmit()">Submit</app-button>
+  </app-issue-footer>
 </div>

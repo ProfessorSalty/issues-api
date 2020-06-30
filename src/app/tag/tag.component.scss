@@ -12,7 +12,7 @@
   margin-right: 10px;
   margin-bottom: 4px;
 
-  &:hover {
+  &:not(.edit):hover {
     cursor: pointer;
     background-color: $tag-hover-bg;
     color: $tag-hover-text;

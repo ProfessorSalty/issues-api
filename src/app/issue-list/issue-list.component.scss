@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.issue-list {
+  max-width: 80vw;
+  list-style: none;
+  padding-inline-start: 0;
+}
