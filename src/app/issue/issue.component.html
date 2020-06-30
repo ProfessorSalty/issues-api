@@ -1,4 +1,4 @@
-<li class="issue">
+<ng-container>
   <ng-container *ngIf="!editMode">
     <app-view-issue
       [id]="issue.id"
@@ -23,4 +23,4 @@
       [tags]="issue.tags"
     ></app-edit-issue>
   </ng-container>
-</li>
+</ng-container>

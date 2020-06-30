@@ -8,24 +8,29 @@
     (deselectAllTags)="onDeselectAllTags()"
   ></app-filter>
   <ul class="issue-list">
-    <app-issue
+    <li
+      class="issue"
       *ngFor="
-        let issue of issues
-          | tagFilter: tagFilter
-          | selectedTagFilter: selectedTags
-      "
-      [allTags]="allTags"
-      [issue]="issue"
-      [selectedTags]="selectedTags"
-      (updateIssue)="onUpdateIssue($event)"
-      (deleteIssue)="onDeleteIssue($event)"
-      (addNewTag)="onAddNewTag($event)"
-      (selectTag)="onSelectTag($event)"
-    ></app-issue>
-    <app-edit-issue
-      (submitIssue)="onSubmitNewIssue($event)"
-      (addNewTag)="onAddNewTag($event)"
-      [allTags]="allTags"
-    ></app-edit-issue>
+      let issue of issues
+      | tagFilter: tagFilter
+      | selectedTagFilter: selectedTags
+      ">
+      <app-issue
+        [allTags]="allTags"
+        [issue]="issue"
+        [selectedTags]="selectedTags"
+        (updateIssue)="onUpdateIssue($event)"
+        (deleteIssue)="onDeleteIssue($event)"
+        (addNewTag)="onAddNewTag($event)"
+        (selectTag)="onSelectTag($event)"
+      ></app-issue>
+    </li>
+    <li class="issue">
+      <app-edit-issue
+        (submitIssue)="onSubmitNewIssue($event)"
+        (addNewTag)="onAddNewTag($event)"
+        [allTags]="allTags"
+      ></app-edit-issue>
+    </li>
   </ul>
 </main>

@@ -19,7 +19,7 @@ import { IssueTitleBarComponent } from './issue-title-bar/issue-title-bar.compon
 import { IssueContentComponent } from './issue-content/issue-content.component';
 import { IssueFooterComponent } from './issue-footer/issue-footer.component';
 import { IssueTagListComponent } from './issue-tag-list/issue-tag-list.component';
-import { ViewIssueComponent } from './issue-view/view-issue.component';
+import { ViewIssueComponent } from './view-issue/view-issue.component';
 import { ButtonComponent } from './button/button.component';
 
 @NgModule({

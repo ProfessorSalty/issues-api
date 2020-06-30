@@ -1,3 +1,5 @@
+@import "../variables";
+
 .container {
   display: flex;
   flex-direction: column;
@@ -8,4 +10,11 @@
   max-width: 80vw;
   list-style: none;
   padding-inline-start: 0;
+}
+
+.issue {
+  position: relative;
+  margin-bottom: 15px;
+  border: 1px solid $issue-border;
+  border-radius: 4px;
 }
