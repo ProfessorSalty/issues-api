@@ -39,6 +39,10 @@
     }
   }
 
+  ::ng-deep {
+    color: $button-content-text;
+  }
+
   &:hover {
     cursor: pointer;
   }

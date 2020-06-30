@@ -1,6 +1,6 @@
 <div [ngClass]="{ selected: selected, edit: edit, tag: true }" (click)="onClick()">
   <ng-content></ng-content>
   <ng-container *ngIf="edit">
-    <app-button (remove)="onDelete(idx)">X</app-button>
+    <app-button (remove)="onDelete(idx)">x</app-button>
   </ng-container>
 </div>

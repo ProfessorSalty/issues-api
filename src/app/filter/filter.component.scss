@@ -18,12 +18,22 @@
   align-items: center;
 }
 
+.filter-input-wrapper {
+  background-color: $filter-bar-bg;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 70px;
+}
+
 .filter-input {
   width: 80vw;
-  margin-bottom: 20px;
-  font-size: 1.6em;
+  font-size: 1.8em;
   font-family: $main-font;
   color: $filter-text;
+  border: solid 1px $filter-border;
 }
 
 .clear-selection-btn {

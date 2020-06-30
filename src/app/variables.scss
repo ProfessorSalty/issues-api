@@ -1,38 +1,54 @@
-$rgba-primary-0: rgba(176, 224, 255, 0.95);
-$rgba-primary-1: rgba(120,134,153,1);
-$rgba-primary-2: rgba(194,220,255,1);
-$rgba-primary-3: rgba(106,169,255,1);
-$rgba-primary-4: rgba( 40,125,242,1);
+$primary-color: hsl(205, 21%, 28%);
+$primary-color-dark: darken($primary-color, 10%);
+$primary-text: hsl(204, 16%, 47%);
+$danger: hsl(352, 74%, 53%);
+$secondary-color: hsl(207, 100%, 96%);
+$secondary-color-dark: darken($secondary-color, 10%);
+$tertiary-color: hsl(100, 60%, 96%);
+$submit-text: hsl(161, 75%, 28%);
+$edit-text: hsl(201, 100%, 28%);
 
-$tag-hover-bg: black;
-$tag-hover-text: white;
-$tag-bg: white;
-$tag-text: $rgba-primary-1;
+$primary-font-weight: 300;
+$secondary-font-weight: 100;
+$tag-font-weight: 500;
+
+$tag-hover-bg: darken($tertiary-color, 2%);
+$tag-hover-text: $primary-text;
+$tag-bg: $tertiary-color;
+$tag-text: $primary-text;
 $tag-selected-bg: black;
-$tag-selected-text: $rgba-primary-1;
-$tag-border: $rgba-primary-1;
+$tag-selected-text: white;
+$tag-border: darken($tertiary-color, 5%);
 
-$issue-title-bar-bg: $rgba-primary-0;
-$issue-border: $rgba-primary-0;
+$issue-title-bar-bg: $secondary-color;
+$issue-border: $secondary-color-dark;
 
 $clear-selection-button-color: black;
-$delete-button-bg: red;
-$delete-button-hover-bg: red;
+$delete-button-bg: $danger;
+$delete-button-hover-bg: saturate(lighten($danger, 10%), 30%);
 $delete-button-text: white;
-$edit-button-text: $rgba-primary-1;
-$edit-button-hover-text: black;
-$submit-button-text: $rgba-primary-1;
-$submit-button-hover-text: black;
+$edit-button-text: $primary-text;
+$edit-button-hover-text: $edit-text;
+$submit-button-text: $primary-text;
+$submit-button-hover-text: $submit-text;
 $cancel-button-text: white;
 $cancel-button-hover-text: white;
-$edit-issue-text: $rgba-primary-1;
+$edit-issue-text: $primary-text;
+$button-content-text: $primary-text;
 
-$comment-wrapper-border: black;
-$comment-view-text: $rgba-primary-1;
+$comment-wrapper-border: $secondary-color-dark;
+$comment-view-text: $primary-text;
 
-$issue-title-text: $rgba-primary-1;
-$issue-text-input-border: black;
-$issue-tag-text: $rgba-primary-1;
-$filter-text: $rgba-primary-1;
+$issue-title-text: $primary-text;
+$issue-text-input-border: $secondary-color-dark;
+$issue-tag-text: $primary-text;
+$filter-text: $primary-text;
 
 $main-font: 'Roboto', sans-serif;
+$math-expression-bg: $primary-color;
+$math-expression-text: white;
+$math-expression-border: $primary-color-dark;
+$math-result-text: darken($primary-text, 10%);
+$math-result-border: black;
+$filter-bar-bg: $primary-color;
+$filter-border: $primary-color-dark;

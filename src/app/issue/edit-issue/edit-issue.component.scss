@@ -4,11 +4,13 @@
   border: none;
   font-size: 28px;
   color: $issue-title-text;
+  font-weight: $primary-font-weight;
 }
 
-.issue-tag {
+.new-tag-input {
   border: none;
   color: $issue-tag-text;
+  font-weight: $tag-font-weight;
 }
 
 .issue-text {
@@ -19,4 +21,5 @@
   font-size: 16px;
   color: $edit-issue-text;
   font-family: $main-font;
+  font-weight: $secondary-font-weight;
 }

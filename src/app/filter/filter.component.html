@@ -1,5 +1,7 @@
 <div class="wrapper">
-  <input type="search" (input)="changeFilter($event)" list="tags-list" class="filter-input" placeholder="Filter by tag..."/>
+  <div class="filter-input-wrapper">
+    <input type="search" (input)="changeFilter($event)" list="tags-list" class="filter-input" placeholder="Filter by tag..."/>
+  </div>
   <datalist id="tags-list">
     <option *ngFor="let tag of allTags | excludeTagsFilter: selectedTags">{{
       tag

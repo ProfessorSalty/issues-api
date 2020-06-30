@@ -1,4 +1,4 @@
-<main class="container">
+<ng-container>
   <app-filter
     (setFilter)="onUpdateFilter($event)"
     [allTags]="allTags"
@@ -7,31 +7,34 @@
     (deselectTag)="onDeselectTag($event)"
     (deselectAllTags)="onDeselectAllTags()"
   ></app-filter>
-  <ul class="issue-list">
-    <li
-      class="issue"
-      *ngFor="
-      let issue of issues
-      | tagFilter: tagFilter
-      | selectedTagFilter: selectedTags
-      ">
-      <app-issue
-        [allTags]="allTags"
-        [issue]="issue"
-        [selectedTags]="selectedTags"
-        (updateIssue)="onUpdateIssue($event)"
-        (deleteIssue)="onDeleteIssue($event)"
-        (addNewTag)="onAddNewTag($event)"
-        (selectTag)="onSelectTag($event)"
-      ></app-issue>
-    </li>
-    <li class="issue">
-      <app-edit-issue
-        (submitIssue)="onSubmitNewIssue($event)"
-        (addNewTag)="onAddNewTag($event)"
-        [allTags]="allTags"
-        [edit]="false"
-      ></app-edit-issue>
-    </li>
-  </ul>
-</main>
+  <main class="container">
+    <ul class="issue-list">
+      <li
+        class="issue"
+        *ngFor="
+          let issue of issues
+            | tagFilter: tagFilter
+            | selectedTagFilter: selectedTags
+        "
+      >
+        <app-issue
+          [allTags]="allTags"
+          [issue]="issue"
+          [selectedTags]="selectedTags"
+          (updateIssue)="onUpdateIssue($event)"
+          (deleteIssue)="onDeleteIssue($event)"
+          (addNewTag)="onAddNewTag($event)"
+          (selectTag)="onSelectTag($event)"
+        ></app-issue>
+      </li>
+      <li class="issue">
+        <app-edit-issue
+          (submitIssue)="onSubmitNewIssue($event)"
+          (addNewTag)="onAddNewTag($event)"
+          [allTags]="allTags"
+          [edit]="false"
+        ></app-edit-issue>
+      </li>
+    </ul>
+  </main>
+</ng-container>
