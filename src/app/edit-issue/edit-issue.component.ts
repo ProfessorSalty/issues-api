@@ -30,7 +30,7 @@ export class EditIssueComponent implements OnInit {
     this.titleInputControl = new FormControl(this.title || '');
     this.textInputControl = new FormControl(this.text || '');
     this.tagInputControl = new FormControl('');
-    this.tagsControl = this.tags || [];
+    this.tagsControl = [...this.tags] || [];
   }
 
   private addTag() {
