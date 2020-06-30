@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Issue } from '../issue.model';
+import { Issue } from '../../issue.model';
 import { FormControl } from '@angular/forms';
 
 @Component({

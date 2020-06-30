@@ -1,12 +1,14 @@
-@import "../variables";
+@import "../../variables";
 
 .issue-title {
   border: none;
   font-size: 28px;
+  color: $issue-title-text;
 }
 
 .issue-tag {
   border: none;
+  color: $issue-tag-text;
 }
 
 .issue-text {
@@ -14,4 +16,7 @@
   border: none;
   border-bottom: 1px solid $issue-text-input-border;
   margin-top: 10px;
+  font-size: 16px;
+  color: $edit-issue-text;
+  font-family: $main-font;
 }

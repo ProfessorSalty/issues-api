@@ -1,9 +1,12 @@
-@import "../variables";
+@import "../../variables";
 
 .common-wrapper {
   border-bottom: 1px solid $comment-wrapper-border;
   padding-bottom: 10px;
   margin-top: 10px;
+  font-family: $main-font;
+  font-weight: normal;
+  color: $comment-view-text;
 }
 
 .math-result {

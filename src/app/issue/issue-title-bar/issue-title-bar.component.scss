@@ -1,4 +1,4 @@
-@import "../variables.scss";
+@import "../../variables";
 
 .title-bar {
   border-bottom: 1px solid $issue-border;
@@ -10,5 +10,7 @@
   padding: 7px 15px;
   color: $issue-title-text;
   font-size: 28px;
+  font-family: $main-font;
+  font-weight: 500;
 }
 

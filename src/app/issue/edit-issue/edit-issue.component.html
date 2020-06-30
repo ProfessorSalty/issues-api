@@ -35,6 +35,6 @@
   </app-issue-content>
   <app-issue-footer>
     <app-button (remove)="onCancel()" delete="true" *ngIf="edit">Cancel</app-button>
-    <app-button (remove)="onSubmit()">Submit</app-button>
+    <app-button (remove)="onSubmit()" [submit]="true">Submit</app-button>
   </app-issue-footer>
 </div>
