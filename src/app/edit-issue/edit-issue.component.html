@@ -5,7 +5,7 @@
   <app-issue-content>
     <app-issue-tag-list>
       <li *ngFor="let tag of tagsControl; let i = index">
-        <app-tag [edit]="true" (deleteTag)="onRemoveTag($event)">{{ tag }}</app-tag>
+        <app-tag [edit]="true" (deleteTag)="onRemoveTag(i)">{{ tag }}</app-tag>
       </li>
       <li>
         <input
