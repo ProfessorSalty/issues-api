@@ -49,6 +49,7 @@ export class NewIssueComponent implements OnInit {
   private resetFields() {
     this.titleInputControl.reset('');
     this.textInputControl.reset('');
+    this.tagInputControl.reset('');
     this.tagsControl = [];
   }
 
