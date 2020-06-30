@@ -1,0 +1,46 @@
+@import "../variables";
+
+.btn {
+  border: none;
+  background-color: transparent;
+  padding: 4px 10px;
+
+  &.delete {
+    color: $delete-button-text;
+    background-color: $delete-button-bg;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: $delete-button-hover-bg;
+    }
+  }
+
+  &.edit {
+    color: $edit-button-text;
+
+    &:hover {
+      color: $edit-button-hover-text;
+    }
+  }
+
+  &.cancel {
+    color: $cancel-button-text;
+
+    &:hover {
+      color: $cancel-button-hover-text;
+    }
+  }
+
+  &.submit {
+    color: $submit-button-text;
+
+    &:hover {
+      color: $submit-button-hover-text;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+

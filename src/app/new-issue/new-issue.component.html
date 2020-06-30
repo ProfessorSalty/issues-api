@@ -34,7 +34,7 @@
     <textarea [formControl]="textInputControl" class="issue-text" placeholder="write comment here..."></textarea>
   </app-issue-content>
   <app-issue-footer>
-    <app-button (click)="onCancel()" delete="true">Cancel</app-button>
-    <app-button (click)="onSubmit()">Submit</app-button>
+    <app-button (remove)="onCancel()" delete="true">Cancel</app-button>
+    <app-button (remove)="onSubmit()">Submit</app-button>
   </app-issue-footer>
 </div>

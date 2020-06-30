@@ -1,0 +1,31 @@
+<ng-container>
+  <app-issue-title-bar>
+    <h3>{{ title }}</h3>
+  </app-issue-title-bar>
+  <app-issue-content>
+    <app-issue-tag-list>
+      <ng-container *ngIf="selectedTags.length > 0">
+        <li *ngFor="let tag of selectedTags">
+          <app-tag [value]="tag" [selected]="true">{{ tag }}</app-tag>
+        </li>
+      </ng-container>
+      <li *ngFor="let tag of tags | excludeTagsFilter: selectedTags">
+        <app-tag
+          [value]="tag"
+          (clickTag)="onSelectTag($event)"
+          [selected]="false"
+          >{{ tag }}</app-tag
+        >
+      </li>
+    </app-issue-tag-list>
+    <app-comment-view [text]="text"></app-comment-view>
+  </app-issue-content>
+  <app-issue-footer>
+    <app-button (remove)="onDelete()" [delete]="true">
+      Delete
+    </app-button>
+    <app-button (remove)="onEnableEdit()" [edit]="true">
+      Edit
+    </app-button>
+  </app-issue-footer>
+</ng-container>

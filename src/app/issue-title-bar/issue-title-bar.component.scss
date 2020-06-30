@@ -1,0 +1,14 @@
+@import "../variables.scss";
+
+.title-bar {
+  border-bottom: 1px solid $issue-border;
+  background-color: $issue-title-bar-bg;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 7px 15px;
+  color: $issue-title-text;
+  font-size: 28px;
+}
+
