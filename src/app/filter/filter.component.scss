@@ -22,12 +22,14 @@
   width: 80vw;
   margin-bottom: 20px;
   font-size: 1.6em;
+  font-family: $main-font;
+  color: $filter-text;
 }
 
 .clear-selection-btn {
   border: none;
   background-color: transparent;
-  color: $clear-selection-btn-color;
+  color: $clear-selection-button-color;
 
   &:hover {
     cursor: pointer;

@@ -1,22 +1,38 @@
+$rgba-primary-0: rgba(176, 224, 255, 0.95);
+$rgba-primary-1: rgba(120,134,153,1);
+$rgba-primary-2: rgba(194,220,255,1);
+$rgba-primary-3: rgba(106,169,255,1);
+$rgba-primary-4: rgba( 40,125,242,1);
+
 $tag-hover-bg: black;
 $tag-hover-text: white;
 $tag-bg: white;
-$tag-text: black;
+$tag-text: $rgba-primary-1;
 $tag-selected-bg: black;
-$tag-selected-text: white;
-$tag-border: black;
-$issue-title-bar-bg: green;
-$issue-border: black;
-$clear-selection-btn-color: black;
+$tag-selected-text: $rgba-primary-1;
+$tag-border: $rgba-primary-1;
+
+$issue-title-bar-bg: $rgba-primary-0;
+$issue-border: $rgba-primary-0;
+
+$clear-selection-button-color: black;
 $delete-button-bg: red;
 $delete-button-hover-bg: red;
 $delete-button-text: white;
-$edit-button-text: black;
+$edit-button-text: $rgba-primary-1;
 $edit-button-hover-text: black;
-$submit-button-text: black;
+$submit-button-text: $rgba-primary-1;
 $submit-button-hover-text: black;
 $cancel-button-text: white;
 $cancel-button-hover-text: white;
+$edit-issue-text: $rgba-primary-1;
+
 $comment-wrapper-border: black;
-$issue-title-text: white;
+$comment-view-text: $rgba-primary-1;
+
+$issue-title-text: $rgba-primary-1;
 $issue-text-input-border: black;
+$issue-tag-text: $rgba-primary-1;
+$filter-text: $rgba-primary-1;
+
+$main-font: 'Roboto', sans-serif;
