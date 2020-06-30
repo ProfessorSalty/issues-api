@@ -13,6 +13,7 @@ export class EditIssueComponent implements OnInit {
   @Input() title?: string;
   @Input() text?: string;
   @Input() tags?: string[] = [];
+  @Input() edit = true;
 
   @Output() submitIssue = new EventEmitter<Issue>();
   @Output() deleteIssue = new EventEmitter<string>();
