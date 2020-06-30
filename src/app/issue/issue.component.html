@@ -1,6 +1,6 @@
 <li class="issue">
-  <div class="read-only" *ngIf="!editMode">
-    <app-issue-view
+  <ng-container *ngIf="!editMode">
+    <app-view-issue
       [id]="issue.id"
       [title]="issue.title"
       [text]="issue.text"
@@ -9,10 +9,10 @@
       (enableEdit)="onEnableEdit()"
       (delete)="onDelete()"
       (selectTag)="onSelectTag($event)"
-    ></app-issue-view>
-  </div>
-  <div *ngIf="editMode">
-    <app-new-issue
+    ></app-view-issue>
+  </ng-container>
+  <ng-container *ngIf="editMode">
+    <app-edit-issue
       (addNewTag)="onAddNewTag($event)"
       (submitIssue)="onUpdate($event)"
       (cancelEditing)="onDisableEdit()"
@@ -21,6 +21,6 @@
       [title]="issue.title"
       [text]="issue.text"
       [tags]="issue.tags"
-    ></app-new-issue>
-  </div>
+    ></app-edit-issue>
+  </ng-container>
 </li>

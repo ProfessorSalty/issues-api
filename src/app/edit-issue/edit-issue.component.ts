@@ -3,11 +3,11 @@ import { Issue } from '../issue.model';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-new-issue',
-  templateUrl: './new-issue.component.html',
-  styleUrls: ['./new-issue.component.scss'],
+  selector: 'app-edit-issue',
+  templateUrl: './edit-issue.component.html',
+  styleUrls: ['./edit-issue.component.scss'],
 })
-export class NewIssueComponent implements OnInit {
+export class EditIssueComponent implements OnInit {
   @Input() allTags: string[];
   @Input() id?: string;
   @Input() title?: string;

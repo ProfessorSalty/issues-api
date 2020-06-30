@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-issue-view',
-  templateUrl: './issue-view.component.html',
-  styleUrls: ['./issue-view.component.scss'],
+  selector: 'app-view-issue',
+  templateUrl: './view-issue.component.html',
+  styleUrls: ['./view-issue.component.scss'],
 })
-export class IssueViewComponent implements OnInit {
+export class ViewIssueComponent implements OnInit {
   @Input() title: string;
   @Input() tags: string[];
   @Input() selectedTags: string[];

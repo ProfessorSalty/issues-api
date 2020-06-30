@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { IssueListComponent } from './issue-list/issue-list.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { IssueComponent } from './issue/issue.component';
-import {ReactiveFormsModule} from '@angular/forms';
-import { NewIssueComponent } from './new-issue/new-issue.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EditIssueComponent } from './edit-issue/edit-issue.component';
 import { FilterComponent } from './filter/filter.component';
 import { TagFilterPipe } from './tag-filter.pipe';
 import { AllTagsFilterPipe } from './alltags-filter.pipe';
@@ -19,7 +19,7 @@ import { IssueTitleBarComponent } from './issue-title-bar/issue-title-bar.compon
 import { IssueContentComponent } from './issue-content/issue-content.component';
 import { IssueFooterComponent } from './issue-footer/issue-footer.component';
 import { IssueTagListComponent } from './issue-tag-list/issue-tag-list.component';
-import { IssueViewComponent } from './issue-view/issue-view.component';
+import { ViewIssueComponent } from './issue-view/view-issue.component';
 import { ButtonComponent } from './button/button.component';
 
 @NgModule({
@@ -27,7 +27,7 @@ import { ButtonComponent } from './button/button.component';
     AppComponent,
     IssueListComponent,
     IssueComponent,
-    NewIssueComponent,
+    EditIssueComponent,
     FilterComponent,
     TagFilterPipe,
     AllTagsFilterPipe,
@@ -40,15 +40,11 @@ import { ButtonComponent } from './button/button.component';
     IssueContentComponent,
     IssueFooterComponent,
     IssueTagListComponent,
-    IssueViewComponent,
+    ViewIssueComponent,
     ButtonComponent,
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-  ],
+  imports: [BrowserModule, HttpClientModule, ReactiveFormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
